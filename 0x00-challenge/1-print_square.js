@@ -1,11 +1,25 @@
 #!/usr/bin/node
 
-let n = 10;
-let string = "";
-for (let i = 0; i < n; i++) {
-  for (let j = 0; j < n; j++) {
-    string += "#";
-  }
-  string += '\n';
+/*
+    Print a square with the character #
+    
+    The size of the square must be the first argument 
+    of the program.
+*/
+
+
+if (process.argv.length <= 2) {
+    process.stderr.write("Missing argument\n");
+    process.stderr.write("Usage: ./1-print_square.js <size>\n");
+    process.stderr.write("Example: ./1-print_square.js 8\n");
+    process.exit(1)
 }
-console.log(string);
+
+size = parseInt(process.argv[2],10)
+
+for (let i = 0 ; i < size ; i ++) {
+    for (let j = 0 ; j < size ; j ++) {
+        process.stdout.write("#");
+    }
+    process.stdout.write("\n");
+}
